@@ -25,6 +25,7 @@ public class Main {
 
         try (FileWriter writer = new FileWriter("D:/Games/temp/temp.txt")) {
             writer.write(String.valueOf(log));
+            writer.flush();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
