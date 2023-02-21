@@ -7,21 +7,21 @@ import java.time.format.DateTimeFormatter;
 
 public class Main {
     public static void main(String[] args) {
-        String CurrentDir = "D:/Games";
+        String currentDir = "D:/Games";
         StringBuilder log = new StringBuilder("");
-        log.append(CreateDir(CurrentDir));
-        log.append(CreateDir(CurrentDir + "/src"));
-        log.append(CreateDir(CurrentDir + "/res"));
-        log.append(CreateDir(CurrentDir + "/savegames"));
-        log.append(CreateDir(CurrentDir + "/temp"));
-        log.append(CreateDir(CurrentDir + "/src/main"));
-        log.append(CreateDir(CurrentDir + "/src/test"));
-        log.append(CreateFile(CurrentDir + "/src/main", "Main.java"));
-        log.append(CreateFile(CurrentDir + "/src/main", "Utils.java"));
-        log.append(CreateDir(CurrentDir + "/res/drawables"));
-        log.append(CreateDir(CurrentDir + "/res/vectors"));
-        log.append(CreateDir(CurrentDir + "/res/icons"));
-        log.append(CreateFile(CurrentDir + "/temp", "temp.txt"));
+        log.append(createDir(currentDir));
+        log.append(createDir(currentDir + "/src"));
+        log.append(createDir(currentDir + "/res"));
+        log.append(createDir(currentDir + "/savegames"));
+        log.append(createDir(currentDir + "/temp"));
+        log.append(createDir(currentDir + "/src/main"));
+        log.append(createDir(currentDir + "/src/test"));
+        log.append(createFile(currentDir + "/src/main", "Main.java"));
+        log.append(createFile(currentDir + "/src/main", "Utils.java"));
+        log.append(createDir(currentDir + "/res/drawables"));
+        log.append(createDir(currentDir + "/res/vectors"));
+        log.append(createDir(currentDir + "/res/icons"));
+        log.append(createFile(currentDir + "/temp", "temp.txt"));
 
         try (FileWriter writer = new FileWriter("D:/Games/temp/temp.txt")) {
             writer.write(String.valueOf(log));
@@ -31,7 +31,7 @@ public class Main {
         }
     }
 
-    public static String CreateDir(String d) {
+    public static String createDir(String d) {
         File newS = new File(d);
         String localDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
         if (newS.mkdir())
@@ -40,7 +40,7 @@ public class Main {
             return (localDateTime + " Создание НЕ УСПЕШНО " + d + " \n");
     }
 
-    public static String CreateFile(String d, String f) {
+    public static String createFile(String d, String f) {
         File newS = new File(d, f);
         String localDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"));
         try {
